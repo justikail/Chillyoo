@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://justikail.000webhostapp.com/chillyoo/sitemap.xml
