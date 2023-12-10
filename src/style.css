@@ -17,10 +17,9 @@
 html,
 body {
   font-family: "Poppins", sans-serif;
-  background-color: var(--bg);
+  background-color: #101010;
   color: #101010;
   scroll-behavior: smooth;
-  min-height: 2000px;
 }
 
 /* navbar */
@@ -81,6 +80,10 @@ body {
   transform: scaleX(0.5);
 }
 
+.navbar .navigation .icon {
+  display: none;
+}
+
 .navbar .telephone {
   display: flex;
   justify-content: center;
@@ -102,7 +105,8 @@ body {
   transition: transform 0.3s ease 0s;
 }
 
-.navbar .telephone .btn:hover {
+.navbar .telephone .btn:hover,
+.wa:hover {
   transform: translateY(-5px);
 }
 
@@ -169,23 +173,27 @@ body {
 }
 
 /* menu section  */
-.menu {
-  padding: 7rem 7% 1.4rem;
+.menu,
+.contact {
+  padding: 5rem 7% 1.4rem;
   background-color: #101010;
   color: var(--bg);
 }
 
-.menu h2 {
+.menu h2,
+.contact h2 {
   text-align: center;
   font-size: 2.6rem;
   margin-bottom: 1rem;
 }
 
-.menu h2 span {
+.menu h2 span,
+.contact h2 span {
   color: var(--secondary);
 }
 
-.menu .menu-description {
+.menu .menu-description,
+.contact p {
   text-align: center;
   line-height: 1.5;
   max-width: 30rem;
@@ -308,6 +316,116 @@ body {
   background-color: var(--bg);
 }
 
+/* contact section */
+.contact .row {
+  display: flex;
+  margin-top: 2rem;
+  background-color: #222;
+  flex-wrap: wrap;
+}
+
+.contact .row .maps {
+  flex: 1 1 45rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+.contact .row form {
+  flex: 1 1 45rem;
+  padding: 2rem 2rem;
+  text-align: center;
+}
+
+.contact .row form .input {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  background-color: #101010;
+  border: 1 solid #eee;
+  padding-left: 2rem;
+}
+
+.contact .row form .input input {
+  width: 100%;
+  padding: 2rem;
+  font-size: 1.7rem;
+  background: none;
+  color: var(--bg);
+}
+
+.contact .row form .btn {
+  margin-top: 3rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.7rem;
+  color: #101010;
+  background-color: var(--secondary);
+  cursor: pointer;
+}
+
+/* whatsapp floating button */
+.wa {
+  position: fixed;
+  width: 4rem;
+  height: 4rem;
+  bottom: 3rem;
+  right: 3rem;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  transition: transform 0.3s ease 0s;
+  z-index: 50;
+}
+
+/* footer  */
+footer {
+  background-color: var(--secondary);
+  text-align: center;
+  padding: 1rem 0 3rem;
+  margin-top: 3rem;
+}
+
+footer .socialfooter {
+  padding: 1rem 0;
+}
+
+footer .socialfooter a {
+  color: var(--bg);
+  margin: 1rem;
+  transition: 0.3s ease-in-out;
+}
+
+footer .socialfooter a:hover,
+footer .mylinks a:hover,
+footer .mycredit a:hover {
+  color: #101010;
+}
+
+footer .mylinks {
+  margin-bottom: 1rem;
+}
+
+footer .mylinks a {
+  color: var(--bg);
+  padding: 0.7rem 1rem;
+  transition: 0.3s ease-in-out;
+}
+
+footer .mycredit {
+  font-size: 1.2rem;
+  color: var(--bg);
+}
+
+footer .mycredit span {
+  color: #ff0000;
+}
+
+footer .mycredit a {
+  color: #101010;
+  font-weight: 700;
+  transition: 0.3s ease-in-out;
+}
+
 /* ==========+responsive media+========== */
 
 /* laptop */
@@ -366,12 +484,29 @@ body {
   }
 
   .navbar .navigation a:hover::after {
-    transform: scaleX(0.5);
+    transform: scaleX(0.2);
     color: var(--bg);
   }
 
   .navbar .navigation a:hover {
     color: var(--secondary);
+  }
+
+  .navbar .navigation .icon {
+    position: fixed;
+    display: flex;
+    bottom: 0;
+  }
+
+  .navbar .navigation .icon a {
+    padding: 0 0 1.5rem 0;
+  }
+
+  .navbar .navigation .icon a,
+  .navbar .navigation .icon a:hover,
+  .navbar .navigation .icon a::after,
+  .navbar .navigation .icon a:hover::after {
+    border-bottom: none;
   }
 
   .menu .makanan #container .card,
@@ -382,6 +517,23 @@ body {
   .menu .makanan .direction,
   .menu .minuman .direction {
     display: none;
+  }
+
+  .wa {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .contact .row {
+    flex-wrap: wrap;
+  }
+
+  .contact .row .maps {
+    height: 30rem;
+  }
+
+  .contact .row form {
+    padding-top: 0;
   }
 }
 
@@ -429,12 +581,29 @@ body {
   }
 
   .navbar .navigation a:hover::after {
-    transform: scaleX(0.2);
+    transform: scaleX(0.1);
     color: var(--bg);
   }
 
   .navbar .navigation a:hover {
     color: var(--secondary);
+  }
+
+  .navbar .navigation .icon {
+    position: fixed;
+    display: flex;
+    bottom: 0;
+  }
+
+  .navbar .navigation .icon a {
+    padding: 0 0 1.5rem 0;
+  }
+
+  .navbar .navigation .icon a,
+  .navbar .navigation .icon a:hover,
+  .navbar .navigation .icon a::after,
+  .navbar .navigation .icon a:hover::after {
+    border-bottom: none;
   }
 
   .menu .makanan #container .card,
@@ -445,5 +614,22 @@ body {
   .menu .makanan .direction,
   .menu .minuman .direction {
     display: none;
+  }
+
+  .wa {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .contact .row {
+    flex-wrap: wrap;
+  }
+
+  .contact .row .maps {
+    height: 30rem;
+  }
+
+  .contact .row form {
+    padding-top: 0;
   }
 }
